@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCQ Online Test</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color:#fff7ed;   /* soft blue-gray */
+    margin: 0;
+}
+
+
+.container {
+    height: 400px   ;
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.12);
+    border-radius: 30px;
+}
+
+h2, h3 {
+    color: coral;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+p, label {
+    color: coral;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    background-color: #ff7a00;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+    margin-top: 100px;
+    margin-left: 290px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    background-color: #ff7a00;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+button:hover {
+    background-color:  #cc6300;
+}
+
+
+.buttons-row {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.option-item {
+    margin: 12px 0;
+    padding: 10px;
+    border: 1px solid #ffd2b3;  /* soft orange border */
+    background-color: #fff1e6;  /* very light orange */
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.option-item:hover {
+    background-color:  #ffe3cc;  /* soft hover */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+#question-number {
+    font-weight: bold;
+    color: coral;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+  .res{
+    color: coral;
+    text-align: center;
+    height: 50px;
+    width: 220px;
+    padding: 5px,5px;
+    border: 1px solid #ffd2b3;
+    background-color:#fff1e6;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+
+  }
+    </style>
+</head>
+<body>
+ <h3 style="text-align: center; color: coral; font-family: Georgia, 'Times New Roman', Times, serif;">//JAI SHREE RAM//</h3>
+<div class="container">
+    
+    <!-- START SCREEN -->
+    <div id="start-screen">
+        <h1 style=" color:  coral; text-align: center; margin-bottom: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">MCQ Online Test</h1>
+        <div style="margin-top: 110px;">
+        <p style="font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            This test will show <b>15 random questions</b> from a question bank.<br>
+            You can move between questions and submit anytime.
+        </p>
+        </div>
+        <button class="btn"    onclick="startQuiz()">Start Test</button>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quiz-screen" class="hidden">
+        <div class="top-bar">
+            <div id="question-number"></div>
+        </div>
+
+        <h3 id="question-text"></h3>
+
+        <div id="options" style="margin-top: 40px;">
+            <!-- Options will be created here by JavaScript -->
+        </div>
+
+        <div class="buttons-row">
+            <button onclick="prevQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="submitQuiz()">Submit Test</button>
+        </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen" class="hidden">
+        <h1 style="color: coral;     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center;">Test Result</h1>
+        <div style="margin-top: 35px;">
+        <div class="res" style="float: left; margin-left: 12px;">
+            Total Questions
+            <br> 
+            <span id="result-total"></span></p>
+        </div>
+        <div class="res"  style="float: left; margin-left: 230px;" >Correct<br> <span id="result-correct"></span></div>
+        </div>
+        <div style="margin-top: 120px;">
+        <div class="res" style="float: left; margin-left: 12px;">Attempted
+            <br> <span id="result-attempted"></span></div>
+        
+        <div class="res" style="float: left; margin-left: 230px;">Wrong <br> <span id="result-wrong"></span></div>
+        </div>
+        <div class="res" style="margin-top: 205px;margin-left: 239px;">
+        <b>Percentage<br><span id="result-percentage"></span>%</b></div>
+
+        <button class="btn" style="margin-top: 35px;"   onclick="restartQuiz()">Retake Test</button>
+    </div>
+
+</div>
+
+<script src="script1.js"></script>
+</body>
+</html>
